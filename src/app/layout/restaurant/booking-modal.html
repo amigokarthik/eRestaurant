@@ -1,0 +1,40 @@
+<div>
+    <div class="modal-header">
+      <h3 class="modal-title">
+      <!--<button type="button" class="close" ng-click="model.cancel()">&times;</button>-->
+        <h4 ng-if="model.normal" class="modal-title text-muted">{{model.title}}</h4>
+        <h4 ng-if="model.success" class="modal-title text-muted">Success</h4>
+      </h3>
+    </div>
+    <div class="modal-body">
+        
+      <p class="text-bookingsuccess" ng-if="model.success">Your booking is successfull</p>
+
+      <form name="addBookingsFrm" novalidate>
+  
+        <div class="form-group" ng-class="{'has-error': addBookingsFrm.name.$touched && addBookingsFrm.name.$invalid}">
+          <input ng-if="model.normal" type="text" name="name" class="form-control"
+          ng-model="model.booking.name" placeholder="Name" ng-required="true">
+        </div>
+        
+        <div class="form-group" ng-class="{'has-error': addBookingsFrm.email.$touched && addBookingsFrm.email.$invalid}">
+          <input ng-if="model.normal" type="text" name="email" class="form-control"
+          ng-model="model.booking.email" placeholder="Email"
+          ng-pattern="/^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/"
+          ng-required="true">
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': addBookingsFrm.phone.$touched && addBookingsFrm.phone.$invalid}">
+          <input ng-if="model.normal" type="text" name="phone" class="form-control"
+          ng-model="model.booking.phone"
+          ng-pattern="/^[1-9]{1}[0-9]*$/"
+          placeholder="Phone" ng-required="true">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button ng-if="model.normal" class="btn btn-primary text-uppercase" ng-disabled="addBookingsFrm.$invalid" type="button" ng-click="model.createOrUpdate()">Confirm</button>
+      <button class="btn btn-default text-uppercase" type="button" ng-click="model.cancel()">Cancel</button>
+    </div>
+  </div>
+  

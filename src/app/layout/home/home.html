@@ -1,0 +1,58 @@
+<navbar-component></navbar-component>
+<div class="container-fluid">
+    <div class="row">
+        <div class="form-group margin-top-homepanel col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading home-panel-header">
+                    <p class="panel-title home-text">Book a table in your favorite restaurant,the easiest way</p>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <oi-select
+                        oi-options="item as item for item in model.cities"
+                        ng-model="model.city"
+                        class="homesearch-nav"
+                        placeholder="Search your City">
+                        </oi-select>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <button type="button" class="btn btn-search" 
+                            ui-sref="city({city: model.city })">
+                            Search
+                        </button>
+                    </div>
+                    <!-- <ul class="list-inline">
+                        <li>
+                            <form name="model.forms['taskForm']" novalidate>
+                            <div xyz-search ng-model="model.itemName"
+                                    modeldisplay="test" 
+                                    class="submit homesearch-nav padding-top-xs margin-top-sm"></div>
+                            </form> 
+                            <oi-select
+                            oi-options="item as item for item in model.cities"
+                            ng-model="model.city"
+                            class="homesearch-nav"
+                            placeholder="Search your location">
+                            </oi-select>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+            <h3 class="count-text">We are present in :</h3>
+            <ul class="list-inline">
+                <li>
+                    <div class="home-card">
+                        <p><i class="fa fa-globe fa-5x home-globe" aria-hidden="true"></i></p>
+                        <p class="countries-text">{{model.countryCount}} Countries</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="home-card">
+                        <p><i class="fa fa-map-marker fa-5x home-citypoint" aria-hidden="true"></i></p>
+                        <p class="countries-text">{{model.cityCount}} Cities</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

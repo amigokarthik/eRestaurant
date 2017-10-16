@@ -1,0 +1,21 @@
+# Ignore Node & Bower
+###################
+node_modules
+bower_components
+build
+.tmp
+.sass-cache
+src/app/templatescache.js
+
+# Ignore Test reporters
+###################
+**/test/coverage
+report
+
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db

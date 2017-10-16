@@ -1,0 +1,115 @@
+<navbar-component></navbar-component>
+<div class="container-fluid">
+    <!-- <div class="row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p class="landing-text">
+                    {{model.data}}
+                </p>
+            </div>
+            <div class="signupForm form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <form name="addUserFrm" novalidate>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label for="" class="signup-labels">Full Name</label>
+                        <div class="form-group text-muted" ng-class="{'has-error': addUserFrm.fullname.$touched && addUserFrm.fullname.$invalid}">
+                            <input id="fullname" placeholder="Type your full name...." type="text" class="form-control signupText" ng-model="model.fullname" ng-required="true"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <label for="" class="signup-labels">Email</label>
+                        <div class="form-group text-muted" ng-class="{'has-error': addUserFrm.email.$touched && addUserFrm.email.$invalid}">
+                            <input id="email" placeholder="mail@domain.com" type="text" class="form-control signupTextA" ng-model="model.email" ng-required="true"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <label for="" class="signup-labels">Password</label>
+                        <div class="form-group text-muted" ng-class="{'has-error': addUserFrm.password.$touched && addUserFrm.password.$invalid}">
+                            <input id="password" placeholder="........." type="password" class="form-control signupTextA" ng-model="model.password" ng-required="true"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <button type="button" class="btn btn-success" ng-click="model.createUser()">
+                            Sign up for free
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+    <div class="row margin-top-homepanel">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading home-panel-header">
+                    <p class="panel-title home-text">Book a table in your favorite restaurant,the easiest way</p>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <oi-select
+                        oi-options="item as item for item in model.cities"
+                        ng-model="model.city"
+                        class="homesearch-nav"
+                        placeholder="Search your city">
+                        </oi-select>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <button type="button" class="search-button btn btn-search" 
+                            ui-sref="city({city: model.city })">
+                            Search
+                        </button>
+                    </div>
+                    <!-- <ul class="list-inline">
+                        <li>
+                            <form name="model.forms['taskForm']" novalidate>
+                            <div xyz-search ng-model="model.itemName"
+                                    modeldisplay="test" 
+                                    class="submit homesearch-nav padding-top-xs margin-top-sm"></div>
+                            </form> 
+                            <oi-select
+                            oi-options="item as item for item in model.cities"
+                            ng-model="model.city"
+                            class="homesearch-nav"
+                            placeholder="Search your location">
+                            </oi-select>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+            
+            <h3 class="count-text">Available Restaurants :</h3>
+            
+            <ul ng-if="model.restaurants.length>0" class="list-unstyled">
+                <li ng-repeat="restaurant in model.restaurants">
+                    <div class="restaurant-card">
+                        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                            <img class="restaurant-thumbnail img-thumbnail img-responsive" src="{{restaurant.image_url}}" alt="">
+                        </div>
+                        <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
+                          <p class="restaurant-text" ui-sref="restaurant({id : restaurant.id})">{{restaurant.name}}</p>
+                          <p class="restaurantcity-text">{{restaurant.city}}</p>
+                          <button ui-sref="restaurant({id : restaurant.id})" 
+                          class="btn btn-md btn-primary margin-reservation-button">
+                              Table Reservation
+                          </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <ul ng-if="model.restaurants.length == 0" class="list-unstyled">
+                <li>
+                    <div class="norestaurant-card">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <p class="norestaurant-text">
+                                We don't have any restaurants served in {{$state.params.city}}.
+                                Try searching for your city in the above section.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

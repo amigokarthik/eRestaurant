@@ -1,0 +1,68 @@
+<navbar-component></navbar-component>
+<div class="container-fluid">
+    <div ng-if="model.restaurant" class="row">
+      <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+        <img ng-if="model.restaurant.image_url" class="img-responsive img-rounded restaurant-image" src="{{model.restaurant.image_url}}" alt="">
+      </div>
+      <div class="col-xs-5 col-sm-5 col-md-7 col-lg-7">
+        <p class="restaurant-title">{{model.restaurant.name}}</p>
+        <p class="restaurant-city">{{model.restaurant.city}}</p>
+        <p class="restaurant-price">Price : {{model.restaurant.price}}</p>
+        <p class="restaurant-phone">Phone : {{model.restaurant.phone}}</p>
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2">
+        <button ng-if="model.restaurant" type="button" 
+          class="btn btn-primary btn-md restaurant-back-button" 
+          ui-sref="city({city: model.restaurant.city })">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+        </button>
+      </div>
+    </div>
+    <div ng-if="model.restaurant" class="row">
+        <div class="col-xs-4 col-sm-4 col-md-6 col-lg-6">
+            <p class="address-text">Address:</p>
+            <p class="address">{{model.restaurant.address}}</p>
+            <p class="address">{{model.restaurant.city}}</p>
+            <p class="address">{{model.restaurant.state}}</p>
+            <p class="address">{{model.restaurant.area}}</p>
+            <p class="address">{{model.restaurant.postal_code}}</p>
+            <p class="address">{{model.restaurant.country}}</p>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6">
+                
+                <p class="bookingtitle-text">Booking Form:</p>
+
+                <form class="bookingform-margin" name="addBookingFrm" novalidate>
+
+                    <div class="form-group">
+                        <input type="text" name="noofguests" class="form-control bookingFormTextbox"
+                        ng-model="model.booking.noofguests"
+                        ng-pattern="/^[1-9]{1}[0-9]*$/"
+                        placeholder="# of Persons" ng-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                        date-picker 
+                        type="text" name="date" class="form-control bookingFormTextbox"
+                        ng-model="model.booking.date" placeholder="Date" ng-required="true">
+                    </div>
+        
+                    <div class="form-group">
+                        <select id="time" name="time" class="form-control bookingFormTextbox" ng-model="model.booking.time"
+                            ng-options="option.time as option.time for option in model.times" ng-required="true">
+                            <option value="">Time</option>
+                        </select>
+                    </div>
+            
+                </form>
+
+                <button ng-disabled="addBookingFrm.$invalid" type="button"
+                    class="btn btn-book" 
+                    ng-click="model.bookNow()">
+                    Book a table
+                </button>
+        </div>
+    </div>
+</div>
+<footer-component></footer-component>
