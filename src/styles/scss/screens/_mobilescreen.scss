@@ -1,6 +1,104 @@
 /** for larger screens **/
 @media screen and (min-width: 100px) and (max-width: 549px) {
+
+      .welcome-content1{
+        background :  url('/images/cook.jpg');
+        background-color : rgba(0,0,0,.7);
+        background-size : 100% 100%;
+        height: 50vh;
+        color : #fff;
+        position: relative;
+        background-blend-mode: multiply;
+      }
+
+      .home-heading{
+        margin-top:18%;
+        display: block;
+        color:#fff;
+        padding-top: 18px;
+        font-style: bold;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        font-size: 2em;
+      }
     
+      .home-subheading{
+        display: block;
+        color:#fff;
+        font-style: bold;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        letter-spacing: 2px;
+        font-size: 1.8em;
+      }
+
+      .restaurant-container{
+        background-color: #eeeeee;
+        width:100%;
+      }
+      
+      .location-bar{
+        width:100%;
+        height:120px;
+        background-color: #E3373B;
+      }
+    
+      .text-white{
+        color: white;
+      }
+    
+      .margin-top-siderbarIcon{
+        margin-top: 5%;
+      }
+    
+      .location-box{
+        border: 0;
+        outline: 0;
+        background: transparent;
+        margin-top:15px;
+        margin-left:10px;
+        width:98%;
+        border-bottom:1px solid white;
+        color:white;
+        font-size:1.5em;
+        font-weight:600;
+        padding-left:2px;
+      }
+    
+      [uib-typeahead-popup].dropdown-menu {
+        display: block;
+        width: 83%;
+      }
+    
+      .footer-bar{
+        margin-top:90px;
+        width:100%;
+        height:300px;
+        color: white;
+        background-color : rgba(0,0,0,.8);
+      }
+    
+      .margin-top-bottomLogo{
+        margin-top:60px;
+      }
+    
+      .margin-top-bottomSocialIconList{
+        margin-top:30px;
+      }
+    
+      .margin-left-socialIcons{
+        margin-left:30px;
+      }
+    
+      .margin-top-bottomLastList{
+        margin-top:60px;
+      }
+    
+      .margin-left-footervertical{
+        margin-left:10px;
+      }
+
       .margin-reservation-button{
         margin-top:10px;
         margin-left:0px;
@@ -24,6 +122,80 @@
         padding-right: 10px;
       }
       
+      .restaurant-card{
+        border:2px solid #F1EEEE;
+        border-radius: 5px;
+        height:550px;
+        width:100%;
+        margin-top:10px;
+        background-color: white;
+      }
+    
+      .location-barVertical{
+        margin-top: 0px;
+        font-size: 0.01em;
+        color: #E3373B;
+        display: hidden;
+      }
+      
+      .restaurantcard-title{
+        font-size: 1em;
+        margin-top:15px;
+        text-align: center;
+        font-weight: 500;
+      }
+    
+      .restaurantcard-address{
+        font-size: 1em;
+        margin-top:10px;
+        text-align: center;
+        font-weight: 200;
+      }
+    
+      .restaurantcard-horizontalLine {
+        margin-top:10px;
+        width:30%;
+        border-top: 3px double #C5BFBF;
+      }
+    
+      .restaurantcard-price{
+        font-size: 1.5em;
+        margin-top:5px;
+        color:#E3373B;
+        letter-spacing:1px;
+        text-align: center;
+        font-weight: 700;
+      }
+    
+      .margin-right-rightLocationBarICon{
+        margin-right:15px;
+      }
+    
+      .margin-top-rightLocationBar{
+        margin-top: 10px;
+      }
+    
+      .restaurantcard-btnList{
+        text-align: center;
+        margin-top:10px;
+      }
+
+
+      .text-restaurantDetails{
+        color: grey;
+        margin-left:10px;
+        font-size: 2em;
+        font-weight: 900;
+      }
+      
+      .bookingtitle-text{
+        margin-top:60px;
+        margin-left:40px;
+        line-height:10px;
+        font-size:1.3em;
+        font-weight:600;
+      }
+
       .loading-spiner-holder{
         text-align: center;
         display: none;
@@ -77,11 +249,20 @@
       
       .bookingFormTextbox{
         width:100%;
+        margin-top:15px;
+      }
+
+      .text-left{
+        text-align: left;
+      }
+
+      .margin-left-md{
+        margn-left:60px;
       }
       
       .bookingform-margin{
         margin-top:20px;
-        margin-left:70px;
+        margin-left:10px;
       }
       
       .restaurant-back-button{
@@ -106,17 +287,6 @@
           width:100% !important;
           margin-left:5px;
           margin-top:1px;
-      }
-      
-      .restaurant-card{
-        border:1px solid #8BA5B4;
-        border-radius: 5px;
-        height:150px;
-        width:100%;
-        margin-left:0px;
-        margin-top:30px;
-        color: #1c5d84;
-        background-color: white;
       }
 
       .norestaurant-card{
@@ -143,7 +313,9 @@
       }
       
       .restaurant-thumbnail{
-        margin-top:10px;
+        margin-top:0px;
+        width: 100%;
+        height:50%;
       }
       
       .home-globe{
@@ -304,9 +476,8 @@
         box-shadow: none !important;
         border-radius : 4px !important;
         height: 35px;
-        width:70%;
-        margin-left:65px;
-        margin-bottom:10px;
+        width:90%;
+        margin-left:10px;
         font-weight: 700;
         font-size: 1.2em;
         padding-top:6px;
@@ -364,7 +535,11 @@
       }
       
       .btn-book{
-        @include button-book-variant(#1c5d84, #fff,#d4d4dc);
+        @include button-book-variant(black, #fff,black);
+      }
+
+      .btn-details{
+        @include button-book-variant(#fff, black,black);
       }
       
     }   
