@@ -33,6 +33,8 @@ function HomeController($scope, $uibModal, $cookies, $location,toastr,
 		
 		if ($state.current.name === "home"){
 			
+			self.redirect = false;
+
 			// Function that checks for user location and passes to city state
 			
 			geolocation.getLocation().then(function(data){
@@ -45,6 +47,7 @@ function HomeController($scope, $uibModal, $cookies, $location,toastr,
 						if (row.types.length === 2 && row.types[0] === "locality"
 							&& row.types[1] === "political"){
 							console.log(row.long_name);
+							self.redirect = true;;
 							$state.go("city",{city : row.long_name});
 						}
 					});
@@ -53,6 +56,9 @@ function HomeController($scope, $uibModal, $cookies, $location,toastr,
 						error ? error.error : "Error");
 				});
 			});
+			if(self.redirect === false){
+				$state.go("city",{city : ""});
+			}
 			loadAllCities();
 			loadAllCountries();
 		}

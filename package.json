@@ -49,5 +49,8 @@
     "underscore.string": "^3.3.4",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^8.0.2"
+  },
+  "dependencies": {
+    "ui-select": "^0.19.8"
   }
 }

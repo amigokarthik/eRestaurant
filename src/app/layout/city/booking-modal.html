@@ -1,0 +1,100 @@
+<div>
+  <div class="modal-header">
+      <h3 class="modal-title">
+          <button type="button" class="close" ng-click="model.cancel()">&times;</button>
+          <h4 ng-if="model.normal" class="modal-title text-muted">{{model.title}}</h4>
+          <h4 ng-if="model.success" class="modal-title text-muted">Success</h4>
+      </h3>
+  </div>
+  <div class="modal-body">
+    <h3 ng-if="model.normal">Please fill in following information to book a table</h3>
+    <form class="bookingform-margin" name="addBookingFrm" novalidate>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+                <input ng-if="model.normal" type="text" name="noofguests" class="form-control bookingFormTextbox"
+                ng-model="model.booking.noofguests"
+                ng-pattern="/^[1-9]{1}[0-9]*$/"
+                placeholder="# of Persons" ng-required="true">
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <input 
+              date-picker  ng-if="model.normal"
+              type="text" name="date" class="form-control bookingFormTextbox"
+              ng-model="model.booking.date" placeholder="Date" ng-required="true">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <select ng-if="model.normal" id="time" name="time" class="form-control bookingFormTextbox" ng-model="model.booking.time"
+                    ng-options="option.time as option.time for option in model.times" ng-required="true">
+                    <option value="">Time</option>
+                </select>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <input ng-if="model.normal" type="text" name="name" class="form-control bookingFormTextbox"
+                  ng-model="model.booking.name" placeholder="Name" ng-required="true">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <input ng-if="model.normal" type="text" name="email" class="form-control bookingFormTextbox"
+                  ng-model="model.booking.email" placeholder="Email"
+                  ng-pattern="/^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/"
+                  ng-required="true">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <input ng-if="model.normal" type="text" name="phone" class="form-control bookingFormTextbox"
+                  ng-model="model.booking.phone"
+                  ng-pattern="/^[1-9]{1}[0-9]*$/"
+                  placeholder="Phone" ng-required="true">
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <p class="text-bookingsuccess" ng-if="model.success">Your booking is successfull</p>
+    <!-- <ul class="list-unstyled">
+      <li>
+        <ul class="list-inline">
+          <li>Name:</li>
+          <li><p class="text-restaurantDetails">{{model.restaurant.name}}</p></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="list-inline">
+          <li>Adddress:</li>
+          <li><p class="text-restaurantDetails">{{model.restaurant.address}}</p></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="list-inline">
+          <li>Phone Number:</li>
+          <li><p class="text-restaurantDetails">{{model.restaurant.phone}}</p></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="list-inline">
+          <li>Country:</li>
+          <li><p class="text-restaurantDetails">{{model.restaurant.country}}</p></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="list-inline">
+          <li>Price:</li>
+          <li><p class="text-restaurantDetails">${{model.restaurant.price}}</p></p></li>
+        </ul>
+      </li>
+    </ul> -->
+  </div>
+  <div class="modal-footer">
+    <button ng-if="model.normal" class="btn btn-primary text-uppercase" ng-disabled="addBookingFrm.$invalid" type="button" ng-click="model.createOrUpdate()">Book It</button>
+  </div>
+</div>

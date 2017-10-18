@@ -1,115 +1,148 @@
-<navbar-component></navbar-component>
-<div class="container-fluid">
-    <!-- <div class="row">
-        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <p class="landing-text">
-                    {{model.data}}
-                </p>
-            </div>
-            <div class="signupForm form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <form name="addUserFrm" novalidate>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="" class="signup-labels">Full Name</label>
-                        <div class="form-group text-muted" ng-class="{'has-error': addUserFrm.fullname.$touched && addUserFrm.fullname.$invalid}">
-                            <input id="fullname" placeholder="Type your full name...." type="text" class="form-control signupText" ng-model="model.fullname" ng-required="true"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <label for="" class="signup-labels">Email</label>
-                        <div class="form-group text-muted" ng-class="{'has-error': addUserFrm.email.$touched && addUserFrm.email.$invalid}">
-                            <input id="email" placeholder="mail@domain.com" type="text" class="form-control signupTextA" ng-model="model.email" ng-required="true"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <label for="" class="signup-labels">Password</label>
-                        <div class="form-group text-muted" ng-class="{'has-error': addUserFrm.password.$touched && addUserFrm.password.$invalid}">
-                            <input id="password" placeholder="........." type="password" class="form-control signupTextA" ng-model="model.password" ng-required="true"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <button type="button" class="btn btn-success" ng-click="model.createUser()">
-                            Sign up for free
-                        </button>
-                    </div>
-                </form>
+<!-- <img src="../images/cook.jpg" class="img-responsive height-change" alt=""> -->
+<div class="welcome-content1">
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <i class="fa fa-bars fa-2x link text-white pull-left margin-top-siderbarIcon" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart link fa-2x text-white pull-right margin-top-siderbarIcon" aria-hidden="true"></i>
+                <center>
+                    <p class="home-heading">WE COOK.YOU BOOK.</p>
+                    <p class="home-subheading">THE GREATEST FOOD AWAITS YOU</p>
+                </center>
             </div>
         </div>
-    </div> -->
-    <div class="row margin-top-homepanel">
-        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading home-panel-header">
-                    <p class="panel-title home-text">Book a table in your favorite restaurant,the easiest way</p>
-                </div>
-                <div class="panel-body">
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <oi-select
-                        oi-options="item as item for item in model.cities"
-                        ng-model="model.city"
-                        class="homesearch-nav"
-                        placeholder="Search your city">
-                        </oi-select>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <button type="button" class="search-button btn btn-search" 
-                            ui-sref="city({city: model.city })">
-                            Search
-                        </button>
-                    </div>
-                    <!-- <ul class="list-inline">
-                        <li>
-                            <form name="model.forms['taskForm']" novalidate>
-                            <div xyz-search ng-model="model.itemName"
-                                    modeldisplay="test" 
-                                    class="submit homesearch-nav padding-top-xs margin-top-sm"></div>
-                            </form> 
-                            <oi-select
-                            oi-options="item as item for item in model.cities"
+    </div>
+</div>
+<div class="location-bar">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <table class="pull-left">
+                <tbody>
+                    <tr>
+                        <td>
+                          <i class="fa fa-map-marker fa-2x text-white margin-top-lcoationmarker" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                            <input type="text" 
+                            typeahead-on-select="model.loadCityRestaurants()"
                             ng-model="model.city"
-                            class="homesearch-nav"
-                            placeholder="Search your location">
-                            </oi-select>
-                        </li>
-                    </ul> -->
-                </div>
-            </div>
-            
-            <h3 class="count-text">Available Restaurants :</h3>
-            
-            <ul ng-if="model.restaurants.length>0" class="list-unstyled">
-                <li ng-repeat="restaurant in model.restaurants">
-                    <div class="restaurant-card">
-                        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                            <img class="restaurant-thumbnail img-thumbnail img-responsive" src="{{restaurant.image_url}}" alt="">
-                        </div>
-                        <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10">
-                          <p class="restaurant-text" ui-sref="restaurant({id : restaurant.id})">{{restaurant.name}}</p>
-                          <p class="restaurantcity-text">{{restaurant.city}}</p>
-                          <button ui-sref="restaurant({id : restaurant.id})" 
-                          class="btn btn-md btn-primary margin-reservation-button">
-                              Table Reservation
-                          </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-
-            <ul ng-if="model.restaurants.length == 0" class="list-unstyled">
+                            uib-typeahead="item for item in model.cities | filter:$viewValue | limitTo:8"
+                            class="location-box"
+                            >
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="pull-right location-barVertical">|</p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <ul class="list-inline pull-right margin-top-rightLocationBar">
                 <li>
-                    <div class="norestaurant-card">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <p class="norestaurant-text">
-                                We don't have any restaurants served in {{$state.params.city}}.
-                                Try searching for your city in the above section.
-                            </p>
-                        </div>
-                    </div>
+                    <i class="fa fa-lemon-o fa-2x link text-white margin-right-rightLocationBarICon" aria-hidden="true"></i>
+                </li>
+                <li>
+                    <i class="fa fa-snowflake-o fa-2x link text-white margin-right-rightLocationBarICon" aria-hidden="true"></i>
+                </li>
+                <li>
+                    <i class="fa fa-envira fa-2x link text-white margin-right-rightLocationBarICon" aria-hidden="true"></i>
+                </li>
+                <li>
+                    <i class="fa fa-cubes fa-2x link text-white margin-right-rightLocationBarICon" aria-hidden="true"></i>
+                </li>
+                <li>
+                    <i class="fa fa-pagelines fa-2x link text-white margin-right-rightLocationBarICon" aria-hidden="true"></i>
                 </li>
             </ul>
         </div>
     </div>
+  </div>
 </div>
+<div class="restaurant-container">
+    <div class="container">
+        <div ng-if="model.restaurants.length>0" class="row">
+            <div 
+            ng-repeat="restaurant in model.restaurants"
+            class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="restaurant-card">
+                        <img class="restaurant-thumbnail img-responsive" src="{{restaurant.image_url}}" alt="">
+                        <p class="restaurantcard-title">{{restaurant.name}}</p>
+                        <p class="restaurantcard-address">{{restaurant.address}},{{restaurant.city}}</p>
+                        <hr class="restaurantcard-horizontalLine">
+                        <p class="restaurantcard-price">${{restaurant.price}}</p>
+                        <ul class="list-inline restaurantcard-btnList">
+                            <li>
+                                <a ng-click="model.openDetails(restaurant)" class="btn btn-details">
+                                    DETAILS
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-click="model.openBooking(restaurant)" class="btn btn-book">
+                                    BOOK NOW
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- <ul class="list-unstyled pull-right">
+                            <li ui-sref="restaurant({id : restaurant.id})"class="padding-top-md link">
+                                {{restaurant.name}}
+                            </li>
+                            <li class="padding-top-lg">{{restaurant.city}}</li>
+                        </ul> -->
+                </div>  
+            <!-- <ul class="list-inline text-center pull-left padding-top-md padding-left-lg">
+                <li class="">
+                    <span ui-sref="context({ context : context._id,level: 'level1'})" class="context-title link">{{context.name | shortname}}</span>
+                </li>
+                </ul> -->
+                <!-- <ul class="list-unstyled pull-right">
+                <li ui-sref="restaurant({id : restaurant.id})"
+                    class="padding-top-md link">{{restaurant.name}}</li>
+                <li class="padding-top-lg">{{restaurant.city}}</li>
+                </ul> -->
+            </div>
+        </div>
+        <div ng-if="model.restaurants.length === 0" class="row">
+            <p class="norestaurant-text">No restaurants found at {{$state.params.city}}.
+                Please search any other city in the above section.</p>
+        </div>
+    </div>
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <center>
+                        <i class="fa fa-cutlery fa-4x margin-top-bottomLogo" aria-hidden="true"></i>
+                        <ul class="list-inline margin-top-bottomSocialIconList">
+                            <li>
+                                <i class="fa fa-2x fa-facebook margin-left-socialIcons" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-2x fa-twitter margin-left-socialIcons" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-2x fa-instagram margin-left-socialIcons" aria-hidden="true"></i>
+                            </li>
+                        </ul>
+                    </center>
+                    <ul class="list-inline margin-top-bottomLastList pull-left">
+                        <li>
+                            <p>Contact  <span class="margin-left-footervertical">|</span></p>
+                        </li>
+                        <li>
+                            <p>Terms of Use  <span class="margin-left-footervertical">|</p>
+                        </li>
+                        <li>
+                            <p>Privacy Policy</p>
+                        </li>
+                    </ul>
+                    <ul class="list-inline margin-top-bottomLastList pull-right">
+                        <li>
+                            <p>Copyright@713.All Rights Reserved.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
